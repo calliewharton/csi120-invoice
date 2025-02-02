@@ -7,12 +7,14 @@ productName = input("Product name: ")
 quantity = int(input("Quantity purchased: "))
 price = float(input("Price: "))
 
-#calculate total price 
-totalPrice = price * quantity
-adjPrice = round(totalPrice, 2)
-
-#print final total
-print(f"Customer {customerName} purchased {quantity} {productName}s for ${adjPrice}.")
+#validate responses, calculate price
+if quantity > 0 and price > 0:
+    totalPrice = price * quantity
+    adjPrice = round(totalPrice, 2)
+    #print final total
+    print(f"Customer {customerName} purchased {quantity} {productName}s for ${adjPrice}.")
+else:
+    print("Invalid input. Please try again.")
 
 #check if user wants to continue
 choice = input("Do you want to generate another receipt? (y/n) ")
@@ -22,8 +24,13 @@ if choice.lower() == "y":
     quantity = int(input("Quantity purchased: "))
     price = float(input("Price: "))
 
-    totalPrice = price * quantity
-    adjPrice = round(totalPrice, 2)
-    print(f"Customer {customerName} purchased {quantity} {productName}s for ${adjPrice}.")
+    #validate responses, calculate price
+    if quantity > 0 and price > 0:
+        totalPrice = price * quantity
+        adjPrice = round(totalPrice, 2)
+        #print final total
+        print(f"Customer {customerName} purchased {quantity} {productName}s for ${adjPrice}.")
+    else:
+        print("Invalid input. Please try again.")
 else:
     print("Finished")
